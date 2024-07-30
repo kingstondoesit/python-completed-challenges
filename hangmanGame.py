@@ -31,7 +31,7 @@ def hangman(word, hint):
     while wrong_guesses < len(stages) - 1:
         print('\n')
         print(f"Hint: {hint}")
-        guess = input("Guess a letter: ").lower()
+        guess = input("Guess a letter: ").strip().lower()
         if guess in letters_left:
             character_index = letters_left.index(guess) #index method .index(value, start, end)
             score_board[character_index] = guess
@@ -60,14 +60,14 @@ def main():
         word, hint = get_word_and_hint()
         hangman(word, hint)
         while True:
-            play_again = input("Do you want to play again? (yes/no):").lower()
+            play_again = input("Do you want to play again? (yes/no):").strip().lower()
             if play_again in ['yes', 'no']:
                 break
             print("Please enter 'yes' or 'no'.")
 
         if play_again == 'no':
             break
-    print("Thanks for playing!")
+    print("Next time then. Thanks for playing!")
 
 if __name__ == "__main__":
     main()
